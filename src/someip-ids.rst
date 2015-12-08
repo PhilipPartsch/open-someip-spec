@@ -59,14 +59,14 @@ Reserved and special Service IDs.
         - Description
       * - 0x0000 
         - Reserved
-      * - 0x0101 
+      * - 0x0101
         - Enhanced Testability Service (see OPEN Alliance, TC8)
-      * - 0x433F 
-        - Reserved for ISO17215 based cameras.
+      * - 0x433F
+        - Reserved for ISO17215 based camera interface.
       * - 0xFFFE 
         - Reserved for announcing non-SOME/IP service instances.
       * - 0xFFFF 
-        - SOME/IP and SOME/IP-SD special service (e.g.Magic Cookie,SOME/IP-SD, ...).
+        - SOME/IP and SOME/IP-SD special service (e.g.SOME/IP-SD, ...).
 
 .. feat_req:: ⓘ 
     :id: feat_req_someipids_529
@@ -94,6 +94,35 @@ Reserved and special Instance IDs.
         - All Instances
 
 .. feat_req:: ⓘ 
+    :id: feat_req_someipids_636
+    :reqtype: Information
+    :security: NO
+    :safety: QM
+    :satisfies: 
+    :status: valid
+    :collapse: True
+  
+Reserved and special Method IDs/Event IDs.
+    
+
+
+    .. list-table::
+      :align: left
+      :header-rows: 1
+      :class: ssp-tinier
+
+      * - Method ID/Event ID 
+        - Description
+      * - 0x0000 
+        - Reserved
+      * - 0x7FFF 
+        - Reserved
+      * - 0x8000 
+        - Reserved
+      * - 0xFFFF 
+        - Reserved
+
+.. feat_req:: ⓘ 
     :id: feat_req_someipids_555
     :reqtype: Information
     :security: NO
@@ -117,6 +146,33 @@ Reserved and special Eventgroup IDs.
         - Reserved
       * - 0xFFFF 
         - All Eventgroups
+
+.. feat_req:: ⓘ 
+    :id: feat_req_someipids_530
+    :reqtype: Information
+    :security: NO
+    :safety: QM
+    :satisfies: 
+    :status: valid
+    :collapse: True
+  
+Method IDs and Event IDs of Service 0xFFFF.
+    
+
+
+    .. list-table::
+      :align: left
+      :header-rows: 1
+      :class: ssp-tinier
+
+      * - Method ID / Event ID 
+        - Description
+      * - 0x0000 
+        - SOME/IP Magic Cookie Messages
+      * - 0x8000 
+        - SOME/IP Magic Cookie Messages
+      * - 0x8100 
+        - SOME/IP-SD messages (events)
 
 .. feat_req:: ⓘ 
     :id: feat_req_someipids_664

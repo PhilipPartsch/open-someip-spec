@@ -25,6 +25,94 @@
 Migration and Compatibility
 ########################### 
 
+.. heading:: Supporting forward compatibility
+    :id: feat_req_someipcompat_1196
+    :layout: focus
+    :style: clean
+
+Supporting forward compatibility
+******************************** 
+
+.. feat_req:: ⓘ 
+    :id: feat_req_someipcompat_1205
+    :reqtype: Information
+    :security: NO
+    :safety: QM
+    :satisfies: 
+    :status: valid
+    :collapse: True
+  
+This section shows requirements for compatibility, so that vehicles can be further enhanced with additional ECUs and functions. These requirements may exist already earlier in this document but are repeated here in order to ease understanding.
+    
+.. feat_req:: 🎯
+    :id: feat_req_someipcompat_1197
+    :reqtype: Requirement
+    :security: NO
+    :safety: QM
+    :satisfies: 
+    :status: valid
+    :collapse: True
+  
+FindService entries shall always set the Minor Version to ANY (0xffff ffff), so that changing the Minor Version of a Service does not require changes on the peer.
+    
+.. feat_req:: 🎯
+    :id: feat_req_someipcompat_1198
+    :reqtype: Requirement
+    :security: NO
+    :safety: QM
+    :satisfies: 
+    :status: valid
+    :collapse: True
+  
+Implementations shall support receiving longer SOME/IP messages as configured and cut off the bytes on the end that were not configured.
+    
+.. feat_req:: 🎯
+    :id: feat_req_someipcompat_1199
+    :reqtype: Requirement
+    :security: NO
+    :safety: QM
+    :satisfies: 
+    :status: valid
+    :collapse: True
+  
+Implementations shall support receiving longer dynamic length elements in SOME/IP messages (e.g. arrays or structs with length field) and cut off the bytes at the end of this element that were not configured.
+
+    
+.. feat_req:: 🎯
+    :id: feat_req_someipcompat_1200
+    :reqtype: Requirement
+    :security: NO
+    :safety: QM
+    :satisfies: 
+    :status: valid
+    :collapse: True
+  
+Implementations shall support setting default values to parameters in order to allow receiving SOME/IP messages that do not carry the new parameters yet or shall support missing parameters by another mean.
+    
+.. feat_req:: 🎯
+    :id: feat_req_someipcompat_1201
+    :reqtype: Requirement
+    :security: NO
+    :safety: QM
+    :satisfies: 
+    :status: valid
+    :collapse: True
+  
+Implementations shall support receiving unknown SOME/IP messages (using nPDU or single) and dropping them (e.g. new events in an old eventgroup).
+    
+.. feat_req:: 🎯
+    :id: feat_req_someipcompat_1202
+    :reqtype: Requirement
+    :security: NO
+    :safety: QM
+    :satisfies: 
+    :status: valid
+    :collapse: True
+  
+Implementations shall allow every client to access every SOME/IP Service Instance and Eventgroup that is configured on the port.
+
+Note: This means it is forbidden to limit the resources, so that a client can only access the Services that are currently configured. If another Eventgroup or Service Instance is available on this socket, the SOME/IP implementation may not limit access to it by means of resources.
+    
 .. heading:: Supporting multiple versions of the same service.
     :id: feat_req_someipcompat_713
     :layout: focus

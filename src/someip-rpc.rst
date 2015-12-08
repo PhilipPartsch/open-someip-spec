@@ -89,7 +89,7 @@ Definition of terms
 * Method – a method, procedure, function, or subroutine that is called/invoked.
 * Parameters – input, output, or input/output arguments of a method or an event.
 
-  * Input/output arguments are arguments shared for input and output.
+ * Input/output arguments are arguments shared for input and output.
 
 * Remote Procedure Call (RPC) – a method call from one ECU to another that is transmitted using messages.
 * Request – a message of the client to the server invoking a method.
@@ -99,14 +99,15 @@ Definition of terms
 * Event – a "Fire&Forget callback" that is only invoked on changes or cyclically and is sent from Server to Client.
 * Field – a representation of a remote property, which has up to one getter, up to one setter, and up to one notifier.
 
-  * The field shall contain at least a getter, a setter, or a notifier.
-  * A field does represent a status and thus has an valid value at all times on which getter, setter, and notifier act upon.
+ * The field shall contain at least a getter, a setter, or a notifier.
+ * A field does represent a status and thus has an valid value at all times on which getter, setter, and notifier act upon.
 
 * Notification Event – an event message the notifier of an field sends. The message of such a notifier cannot be distinguished from the event message; therefore, when referring to the message of an event, this shall also be true for the messages of notifiers of fields.
+* Initial Event – the first transmission of a Notification Event of a Field after start of subscription to transport the initial values of that Field.
 * Getter – a Request/Response call that allows read access to a field.
 * Setter – a Request/Response call that allows write access to a field.
 
-  * The getter needs to return a value; thus, it needs to be a request/response call. The setter is a request/response call as well in order for the client to know whether the setter-operation succeeded.
+ * The getter needs to return a value; thus, it needs to be a request/response call. The setter is a request/response call as well in order for the client to know whether the setter-operation succeeded.
 
 * Notifier – sends out event message with a new value on change of the value of the field
 * Service – a logical combination of zero or more methods, zero or more events, and zero or more fields (empty service is allowed, e.g. for announcing non-SOME/IP services in SOME/IP-SD).
@@ -291,9 +292,9 @@ Different eventgroups of a service shall have different Eventgroup-IDs.
 Specification of the SOME/IP on-wire format
 ########################################### 
 
-.. feat_req:: 🎯
+.. feat_req:: ⓘ 
     :id: feat_req_someip_30
-    :reqtype: Requirement
+    :reqtype: Information
     :security: TBD
     :safety: TBD
     :satisfies: 
@@ -673,6 +674,17 @@ Length [32 Bit]
   
 Length is a field of 32 Bits containing the length in Byte of the payload beginning with the Request ID/Client ID until the end of the SOME/IP-message.
     
+.. feat_req:: 🎯
+    :id: feat_req_someip_798
+    :reqtype: Requirement
+    :security: TBD
+    :safety: TBD
+    :satisfies: 
+    :status: valid
+    :collapse: True
+  
+SOME/IP messages with a length value < 8 bytes shall be ignored.
+    
 .. heading:: Request ID [32 Bit]
     :id: feat_req_someip_78
     :layout: focus
@@ -720,7 +732,7 @@ Structure of the Request ID
     :status: valid
     :collapse: True
   
-The Request ID is constructed of the Client ID and Session ID:
+The Request ID shall be constructed of the Client ID and Session ID:
 
 .. bitfield_directive:: images/bit_field/feat_req_someip_83.json
 
@@ -787,9 +799,9 @@ If session handling is not used, the Session ID shall be set to 0x0000.
   
 If session handling is used, the Session ID shall start with 0x0001.
     
-.. feat_req:: ⓘ 
+.. feat_req:: 🎯
     :id: feat_req_someip_677
-    :reqtype: Information
+    :reqtype: Requirement
     :security: TBD
     :safety: TBD
     :satisfies: 
@@ -809,9 +821,9 @@ When the Session ID reaches 0xFFFF, it shall start with 0x0001 again.
   
 Request/Response methods shall use session handling.
     
-.. feat_req:: ⓘ 
+.. feat_req:: 🎯
     :id: feat_req_someip_667
-    :reqtype: Information
+    :reqtype: Requirement
     :security: TBD
     :safety: TBD
     :satisfies: 
@@ -820,7 +832,7 @@ Request/Response methods shall use session handling.
   
 Events, notification events, and Fire&Forget methods shall use session handling if required by the application.
 
-This could be for example because of functional safety reasons.
+This could be for example because of functional safety reasons or because SOME/IP-TP is required.
     
 .. feat_req:: ⓘ 
     :id: feat_req_someip_668
@@ -944,13 +956,13 @@ List of supported Message Types.
         - RESPONSE
         - The response message
       * - 0x81
-        - ERROR
+        - EXCEPTION
         - The response containing an error
       * - 0xC0
         - RESPONSE ACK
         - Acknowledgment for RESPONSE (informational)
       * - 0xC1
-        - ERROR ACK
+        - EXCEPTION ACK
         - Acknowledgment for ERROR (informational)
 
 .. feat_req:: 🎯
@@ -962,10 +974,10 @@ List of supported Message Types.
     :status: valid
     :collapse: True
   
-Regular request (message type 0x00) will be answered by a response (message type 0x80), when no error occurred. If errors occur an error message (message type 0x81) will be sent. It is also possible to send a request that does not have a response message (message type 0x01). For updating values through notification a callback interface exists (message type 0x02).
+Regular request (message type 0x00) will be answered by a response (message type 0x80), when no error occurred. If errors occur a regular response message with a return code not equal to 0 will be sent. This could be a response message (0x80) or an exception message (message type 0x81). It is also possible to send a request that does not have a response message (message type 0x01). For updating values through notification a callback interface exists (message type 0x02).
     
 .. feat_req:: 🎯
-    :id: feat_req_someip_142
+    :id: feat_req_someip_726
     :reqtype: Requirement
     :security: TBD
     :safety: TBD
@@ -973,7 +985,35 @@ Regular request (message type 0x00) will be answered by a response (message type
     :status: valid
     :collapse: True
   
-For all messages an optional acknowledgment (ACK) exists. These are defined for transport protocols (i.e. UDP) that do not acknowledge a received message. ACKs are only transported when the interface specification requires it. Only the usage of the REQUEST_ACK is currently specified in this document. All other ACKs are currently informational and do not need to be implemented.
+If no EXCEPTION message (message type 0x81) is configured, errors shall only be transported in regular RESPONSE messages (message type 0x80).
+    
+.. feat_req:: ⓘ 
+    :id: feat_req_someip_142
+    :reqtype: Information
+    :security: TBD
+    :safety: TBD
+    :satisfies: 
+    :status: valid
+    :collapse: True
+  
+For all messages an optional acknowledgment (ACK) exists. ACKs have the 0x40 bit of the Message Type set to one, while the regular Message Types do not.
+
+ACKs are defined for transport protocols (i.e. UDP) that do not acknowledge a received message. ACKs are only transported when the interface specification requires it. Only the usage of the REQUEST_ACK is currently specified in this document. All other ACKs are currently informational and do not need to be implemented.
+    
+.. feat_req:: 🎯
+    :id: feat_req_someip_761
+    :reqtype: Requirement
+    :security: TBD
+    :safety: TBD
+    :satisfies: 
+    :status: valid
+    :collapse: True
+  
+The 3rd highest bit of the Message Type (=0x20) shall be called TP-Flag and shall be set to 1 to signal that the current SOME/IP message is a segment. The other bits of the Message Type are set as specified in this Section.
+
+For further information about SOME/IP-TP see SOME/IP-TP :need:`feat_req_someip_759`.
+
+Note: Segments of the Message Type Request (0x00) have the Message Type (0x20), segments of the Message Type Response (0x80) have the Message Type (0xa0), and so on.
     
 .. heading:: Return Code [8 Bit]
     :id: feat_req_someip_143
@@ -1175,6 +1215,10 @@ List of supported basic datatypes.
         - unsigned Integer
         - 32
         - 
+      * - uint64
+        - unsigned Integer
+        - 64
+        - not supported on all platforms, see [:need:`feat_req_someip_623`]
       * - sint8
         - signed Integer
         - 8
@@ -1187,6 +1231,10 @@ List of supported basic datatypes.
         - signed Integer
         - 32
         - 
+      * - sint64
+        - signed Integer
+        - 64
+        - not supported on all platforms, see [:need:`feat_req_someip_623`]
       * - float32
         - floating point number
         - 32
@@ -1380,7 +1428,7 @@ Strings are encoded using Unicode and are terminated with a “\0”-character d
     :status: valid
     :collapse: True
   
-Different Unicode encoding shall be supported including UTF-8, UTF-16BE, and UTF-16LE. Since these encoding have a dynamic length of bytes per character, the maximum length in bytes is up to three times the length of characters in UTF-8 plus 1 Byte for the termination with a “\0” or two times the length of the characters in UTF-16 plus 2 Bytes for a “\0”.
+Different Unicode encoding shall be supported including UTF-8, UTF-16BE, and UTF-16LE. Since these encoding have a dynamic length of bytes per character, the maximum length in bytes is up to six times the length of characters in UTF-8 plus 1 Byte for the termination with a “\0” or two times the length of the characters in UTF-16 plus 2 Bytes for a “\0”.
     
 .. feat_req:: ⓘ 
     :id: feat_req_someip_687
@@ -1436,6 +1484,17 @@ For UTF-16LE and UTF-16BE strings having a odd length the last byte shall be ign
     :collapse: True
   
 All strings shall always start with a Byte Order Mark (BOM). The BOM shall be included in fixed-length-strings as well as dynamic-length strings.
+    
+.. feat_req:: 🎯
+    :id: feat_req_someip_800
+    :reqtype: Requirement
+    :security: TBD
+    :safety: TBD
+    :satisfies: 
+    :status: valid
+    :collapse: True
+  
+The BOM counts towards the length of the string.
     
 .. feat_req:: 🎯
     :id: feat_req_someip_666
@@ -1843,6 +1902,17 @@ Enumeration
   
 The interface definition might specify an enumeration based on unsigned integer datatypes (uint8, uint16, uint32, uint64).
     
+.. feat_req:: 🎯
+    :id: feat_req_someip_799
+    :reqtype: Requirement
+    :security: TBD
+    :safety: TBD
+    :satisfies: 
+    :status: valid
+    :collapse: True
+  
+Implementations shall support sending and receiving undefined enumeration values, if not configured otherwise.
+    
 .. heading:: Bitfield
     :id: feat_req_someip_688
     :layout: focus
@@ -1972,7 +2042,7 @@ The length of the length field shall be defined by the Interface Specification a
     :status: valid
     :collapse: True
   
-An length of the length field of 0 Bit means that no length field will be written to the PDU.
+A length of the length field of 0 Bit means that no length field will be written to the PDU.
     
 .. feat_req:: 🎯
     :id: feat_req_someip_572
@@ -2202,7 +2272,21 @@ If a server runs different instances of the same service, messages belonging to 
     :status: valid
     :collapse: True
   
-All Transport Protocol Bindings shall support transporting more than one SOME/IP message in a Transport Layer PDU (i.e. UDP packet or TCP segment).
+All Transport Protocol Bindings shall support transporting more than one SOME/IP message in a Transport Layer PDU (i.e. UDP packet or TCP segment). This is called nPDU feature (Zugkonzept) and support shall cover receiving and sending.
+    
+.. feat_req:: 🎯
+    :id: feat_req_someip_741
+    :reqtype: Requirement
+    :security: TBD
+    :safety: TBD
+    :satisfies: 
+    :status: valid
+    :collapse: True
+  
+If an ECU has a cyclic send task (meaning it sends only every x ms), the ECU shall support the nPDU feature even without configuration to minimize the number of IP packets transporting SOME/IP messages.
+
+Note:
+The nPDU feature works only on SOME/IP messages using the same socket. This requirement does not mean to combine SOME/IP messages of different sockets.
     
 .. feat_req:: 🎯
     :id: feat_req_someip_664
@@ -2592,9 +2676,9 @@ A Service Instance can be identified through the combination of the Service ID c
 Request/Response Communication
 ****************************** 
 
-.. feat_req:: 🎯
+.. feat_req:: ⓘ 
     :id: feat_req_someip_328
-    :reqtype: Requirement
+    :reqtype: Information
     :security: TBD
     :safety: TBD
     :satisfies: 
@@ -2640,7 +2724,7 @@ The server builds it header based on the header of the client and does in additi
 
 * Construct the payload
 * Set the length to the 8 Bytes + new payload size
-* Set the Message Type to RESPONSE (i.e. 0x80) or ERROR (i.e. 0x81)
+* Set the Message Type to RESPONSE (i.e. 0x80) or EXCEPTION (i.e. 0x81)
 * Set the Return Code.
     
 .. heading:: Fire&Forget Communication
@@ -2676,15 +2760,15 @@ Requests without response message are called Fire&Forget. The implementation is 
     :status: valid
     :collapse: True
   
-Fire&Forget messages shall not return an error. Error handling and return codes shall be implemented by the application when needed.
+Fire&Forget messages shall not return an error. Error handling shall be implemented by the application when needed.
     
-.. heading:: Notification Events
+.. heading:: Events
     :id: feat_req_someip_351
     :layout: focus
     :style: clean
 
-Notification Events
-******************* 
+Events
+****** 
 
 .. feat_req:: ⓘ 
     :id: feat_req_someip_352
@@ -2695,11 +2779,11 @@ Notification Events
     :status: valid
     :collapse: True
   
-Notifications describe a general Publish/Subscribe-Concept. Usually the server publishes a service to which a client subscribes. On certain events the server will send the client a event, which could be for example an updated value or an event that occurred.
+Events describe a general Publish/Subscribe-Concept. Usually the server publishes a service and the client subscribes to one of the services eventgroups. On certain events the server will send the client an event, which could be for example an updated value or an event that occurred.
     
-.. feat_req:: 🎯
+.. feat_req:: ⓘ 
     :id: feat_req_someip_353
-    :reqtype: Requirement
+    :reqtype: Information
     :security: TBD
     :safety: TBD
     :satisfies: 
@@ -2717,7 +2801,65 @@ SOME/IP is used only for transporting the updated value and not for the publishi
     :status: valid
     :collapse: True
   
-When more than one subscribed client on the same ECU exists, the system shall handle the replication of notifications in order to save transmissions on the communication medium. This is especially important, when notifications are transported using multicast messages.
+When more than one subscribed client on the same ECU exists, the system shall handle the replication of events in order to save transmissions on the communication medium. This is especially important, when events are transported using multicast messages.
+    
+.. feat_req:: 🎯
+    :id: feat_req_someip_804
+    :reqtype: Requirement
+    :security: TBD
+    :safety: TBD
+    :satisfies: 
+    :status: valid
+    :collapse: True
+  
+SOME/IP implementations should support sending events (but not notification events of fields) to a subset of the subscribed clients.
+    
+.. feat_req:: 🎯
+    :id: feat_req_someip_806
+    :reqtype: Requirement
+    :security: TBD
+    :safety: TBD
+    :satisfies: 
+    :status: valid
+    :collapse: True
+  
+Sending events to a subset of the subscribed clients shall be controlled by the application.
+    
+.. feat_req:: 🎯
+    :id: feat_req_someip_807
+    :reqtype: Requirement
+    :security: TBD
+    :safety: TBD
+    :satisfies: 
+    :status: valid
+    :collapse: True
+  
+Events shall not be sent to clients that are not subscribed.
+
+Note: Events sent via multicast are not sent to the client but to the multicast addresses; therefore, multicast communication is not affected by this requirement.
+    
+.. feat_req:: ⓘ 
+    :id: feat_req_someip_808
+    :reqtype: Information
+    :security: TBD
+    :safety: TBD
+    :satisfies: 
+    :status: valid
+    :collapse: True
+
+.. rst-class:: compact
+  
+When designing a service with selective event sending, make sure that this works even if the feature is not supported by the sender.
+
+Example with using a handle: 
+
+* Client A <-> Server: Request-Response-Call (parameters) returns (handle1, ...)
+* Client A <-> Server: Request-Response-Call (parameters) returns (handle2, ...)
+* Client B <-> Server: Request-Response-Call (parameters) returns (handle3, ...)
+* Server -> Client A: Selective Event E1 (handle2, ...)
+
+If Event E1 is being sent to all clients instead of only Client A, Client B could filter based on the handle; thus, compatibility is not broken. Only efficiency is lowered.
+
     
 .. heading:: Strategy for sending notifications
     :id: feat_req_someip_355
@@ -2727,9 +2869,9 @@ When more than one subscribed client on the same ECU exists, the system shall ha
 Strategy for sending notifications
 ================================== 
 
-.. feat_req:: 🎯
+.. feat_req:: ⓘ 
     :id: feat_req_someip_356
-    :reqtype: Requirement
+    :reqtype: Information
     :security: TBD
     :safety: TBD
     :satisfies: 
@@ -2780,7 +2922,7 @@ Fields
     :status: valid
     :collapse: True
   
-A field shall be a combination of an optional getter, an optional setter, and an optional notification event.
+A field shall be a combination of an optional getter, an optional setter, and an optional notifier.
     
 .. feat_req:: 🎯
     :id: feat_req_someip_632
@@ -2826,7 +2968,7 @@ Note: If the value of the request payload was adapted (e.g. because it was out o
     :status: valid
     :collapse: True
   
-The notifier shall send an event message that transports the value of a field on change and follows the rules for events.
+The notifier shall send a notification event message that transports the value of a field on change and follows the rules for events.
     
 .. heading:: Error Handling
     :id: feat_req_someip_364
@@ -2866,7 +3008,7 @@ Transporting Application Error Codes and Exceptions
   
 For the error handling two different mechanisms are supported. All messages have a return code field to carry the return code. However, only responses (Message Types 0x80 and 0x81) use this field to carry a return code to the request (Message Type 0x00) they answer. All other messages set this field to 0x00. See :need:`feat_req_someip_94`.
 
-For more detailed errors the layout of the Error Message (Message Type 0x81) can carry specific fields for error handling, e.g. an Exception String. Error Messages are sent instead of Response Messages.
+For more detailed errors the layout of the Exception Message (Message Type 0x81) can carry specific fields for error handling, e.g. an Exception String. Exception Messages can be only sent instead of Response Messages, if configured.
     
 .. feat_req:: ⓘ 
     :id: feat_req_someip_368
@@ -2888,6 +3030,17 @@ Return Code
 =========== 
 
 .. feat_req:: 🎯
+    :id: feat_req_someip_727
+    :reqtype: Requirement
+    :security: TBD
+    :safety: TBD
+    :satisfies: 
+    :status: valid
+    :collapse: True
+  
+A SOME/IP message with a return code unequal 0x00 is called error message. The message type can be RESPONSE or EXCEPTION.
+    
+.. feat_req:: 🎯
     :id: feat_req_someip_597
     :reqtype: Requirement
     :security: TBD
@@ -2908,17 +3061,6 @@ The system shall not return an error message for events/notifications.
     :collapse: True
   
 The system shall not return an error message for fire&forget methods.
-    
-.. feat_req:: 🎯
-    :id: feat_req_someip_706
-    :reqtype: Requirement
-    :security: TBD
-    :safety: TBD
-    :satisfies: 
-    :status: valid
-    :collapse: True
-  
-The system shall not return an error message for events/notifications and fire&forget methods if the Message Type is set incorrectly to Request or Response.
     
 .. feat_req:: 🎯
     :id: feat_req_someip_655
@@ -3004,7 +3146,7 @@ The following Return Codes are currently defined and shall be implemented as des
       * - | 0x20
           | -
           | 0x3f
-        - RESERVED 
+        - RESERVED
         - Reserved for specific errors of services and methods. These errors are specified by the interface specification.
 
 .. feat_req:: 🎯
@@ -3031,6 +3173,7 @@ Generation and handling of return codes shall be configurable.
   
 The SOME/IP message shall be checked in the following order:
 
+* Length field >= 8?
 * Protocol Version supported?
 * Service ID supported?
 * Interface Version of this service supported?
@@ -3048,7 +3191,7 @@ The SOME/IP message shall be checked in the following order:
     :status: valid
     :collapse: True
   
-Implementations shall not answer with errors to SOME/IP message already carrying an error (i.e. return code 0x01 - 0x1f).
+Implementations shall not answer with errors to SOME/IP message already carrying an error (i.e. return code is not equal to 0x00).
     
 .. heading:: Error Message Format
     :id: feat_req_someip_421
@@ -3125,9 +3268,9 @@ The union gives the flexibility to add new exceptions in the future in a type-sa
 Error Processing Overview
 ========================= 
 
-.. feat_req:: ⓘ 
+.. feat_req:: 🎯
     :id: feat_req_someip_719
-    :reqtype: Information
+    :reqtype: Requirement
     :security: TBD
     :safety: TBD
     :satisfies: 
@@ -3152,9 +3295,9 @@ Important things that are reflected in this flow chart:
 * Error handling is based on the message type received (e.g. only methods can be answered with a return code).
 * Errors shall be checked in a defined order (see :need:`feat_req_someip_721`).
     
-.. feat_req:: ⓘ 
+.. feat_req:: 🎯
     :id: feat_req_someip_718
-    :reqtype: Information
+    :reqtype: Requirement
     :security: TBD
     :safety: TBD
     :satisfies: 
@@ -3899,9 +4042,9 @@ Currently not supported are the following changes:
 Transporting CAN and FlexRay Frames
 ################################### 
 
-.. feat_req:: 🎯
+.. feat_req:: ⓘ 
     :id: feat_req_someip_501
-    :reqtype: Requirement
+    :reqtype: Information
     :security: TBD
     :safety: TBD
     :satisfies: 

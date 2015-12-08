@@ -75,8 +75,23 @@
             "type": "green"
         },
         {
-            "name": "Reserved (0x0000)",
-            "bits": 16,
+            "name": "Reserved (0x00)",
+            "bits": 8,
+            "type": "green"
+        },
+        {
+            "name": "I.",
+            "bits": 1,
+            "type": "green"
+        },
+        {
+            "name": "Reserv.",
+            "bits": 3,
+            "type": "green"
+        },
+        {
+            "name": "Counter",
+            "bits": 4,
             "type": "green"
         },
         {
