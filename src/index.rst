@@ -6,5 +6,6 @@
 
     someip-rpc
     someip-sd
+    someip-tp
     someip-compat
     someip-ids
