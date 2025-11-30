@@ -53,7 +53,7 @@ This section shows requirements for compatibility, so that vehicles can be furth
     :status: valid
     :collapse: True
   
-FindService entries shall always set the Minor Version to ANY (0xffff ffff), so that changing the Minor Version of a Service does not require changes on the peer.
+FindService entries shall always set the Minor Version to ANY (0xFFFF FFFF), so that changing the Minor Version of a service does not require changes on the peer.
     
 .. feat_req:: 🎯
     :id: feat_req_someipcompat_1216
@@ -89,7 +89,6 @@ Implementations shall support receiving longer SOME/IP messages as configured an
     :collapse: True
   
 Implementations shall support receiving longer dynamic length elements in SOME/IP messages (e.g. arrays or structs with length field) and cut off the bytes at the end of this element that were not configured.
-
     
 .. feat_req:: 🎯
     :id: feat_req_someipcompat_1200
@@ -124,7 +123,7 @@ Implementations shall support receiving unknown SOME/IP messages (using nPDU or 
   
 Implementations shall allow every client to access every SOME/IP Service Instance and Eventgroup that is configured on the port.
 
-Note: This means it is forbidden to limit the resources, so that a client can only access the Services that are currently configured. If another Eventgroup or Service Instance is available on this socket, the SOME/IP implementation may not limit access to it by means of resources.
+Note: This means it is forbidden to limit the resources, so that a client can only access the services that are currently configured. If another Eventgroup or Service Instance is available on this socket, the SOME/IP implementation may not limit access to it by means of resources.
     
 .. heading:: Supporting multiple versions of the same service.
     :id: feat_req_someipcompat_713
@@ -154,7 +153,7 @@ In order to support migrations scenarios ECUs shall support serving as well as u
     :status: valid
     :collapse: True
   
-In order to support a Service with more than one version the following is required:
+In order to support a service with more than one version the following is required:
     
 .. feat_req:: 🎯
     :id: feat_req_someipcompat_800
@@ -219,5 +218,5 @@ In order to support a Service with more than one version the following is requir
 
 .. rst-class:: compact
   
-* The server has to demultiplex messages based on the socket it arrives, the Message ID, and the Major Version.
+* The server shall demultiplex messages based on the socket it arrives, the Message ID, and the Major Version.
     
