@@ -34,7 +34,7 @@ Transporting large SOME/IP messages over UDP (SOME/IP-TP)
     :status: valid
     :collapse: True
   
-The UDP binding of SOME/IP can only transport SOME/IP messages that fit directly into an Ethernet frame, since IP Fragmentation is not being used. Currently this limits the payload of such messages to 1400 bytes. If larger SOME/IP messages need to be transported over UDP (e.g. of 128 KB) the SOME/IP Transport Protocol (SOME/IP-TP) shall be used.
+The UDP binding of SOME/IP can only transport SOME/IP messages that fit directly into an Ethernet frame, since IP fragmentation is not being used. Currently this limits the payload of such messages to 1400 bytes. If larger SOME/IP messages need to be transported over UDP (e.g. 128 kB) the SOME/IP Transport Protocol (SOME/IP-TP), as specified in this chapter, shall be used.
     
 .. feat_req:: 🎯
     :id: feat_req_someiptp_764
@@ -45,7 +45,7 @@ The UDP binding of SOME/IP can only transport SOME/IP messages that fit directly
     :status: valid
     :collapse: True
   
-The SOME/IP message too big to be transported directly with the UDP binding shall be called "original" SOME/IP message. The "pieces" of the original SOME/IP message payload transported in SOME/IP-TP messages shall be called "segments".
+The SOME/IP message, which is too big to be transported directly with the UDP binding, shall be called "original" SOME/IP message. The "pieces" of the original SOME/IP message payload transported in SOME/IP-TP messages shall be called "segments".
     
 .. feat_req:: 🎯
     :id: feat_req_someiptp_762
@@ -67,7 +67,7 @@ SOME/IP messages using SOME/IP-TP shall activate Session Handling (Session ID mu
     :status: valid
     :collapse: True
   
-All SOME/IP-TP segments shall carry the Session ID of the original message; thus, they have all the same Session ID.
+All SOME/IP-TP segments shall carry the Session ID of the original message; thus, they all have the same Session ID.
     
 .. feat_req:: 🎯
     :id: feat_req_someiptp_765
@@ -91,13 +91,25 @@ SOME/IP-TP segments shall have the TP-Flag of the Message Type set to 1 :need:`f
 
 .. rst-class:: compact
   
-SOME/IP-TP segments shall have a TP header right after the SOME/IP header (i.e. before the SOME/IP payload) with the following structure (bits from highest to lowest):
+SOME/IP-TP segments shall have a TP header right after the SOME/IP header (i.e. before the SOME/IP payload) with the following structure (bits from highest to lowest), as also shown in figure :need:`feat_req_someiptp_832`:
 
 * Offset [28 bits]
-* Reserved Flag [1 bit]
-* Reserved Flag [1 bit]
-* Reserved Flag [1 bit]
+* Reserved Flag [3 bits]
 * More Segments Flag [1 bit]
+    
+.. feat_req:: 🎯
+    :id: feat_req_someiptp_832
+    :reqtype: Requirement
+    :security: NO
+    :safety: QM
+    :satisfies: 
+    :status: valid
+    :collapse: True
+  
+Figure: TP Header for SOME/IP-TP Segments
+
+.. bitfield_directive:: images/bit_field/feat_req_someiptp_832.json
+
     
 .. feat_req:: 🎯
     :id: feat_req_someiptp_768
@@ -108,9 +120,9 @@ SOME/IP-TP segments shall have a TP header right after the SOME/IP header (i.e. 
     :status: valid
     :collapse: True
   
-The Offset field shall transport the upper 28 bits of a uint32. The lower 4 bits shall be always be interpreted as 0.
+The Offset field shall transport the upper 28 bits of a uint32. The lower 4 bits shall always be interpreted as '0'.
 
-Note: This means that the offset field can only transport offset values that are multiples of 16 bytes.
+Note: This means that the 28 bit offset field always represents offset values that are multiples of 16 bytes.
     
 .. feat_req:: 🎯
     :id: feat_req_someiptp_767
@@ -143,7 +155,8 @@ The Reserved Flags shall be set to 0 by the sender and shall be ignored (and not
     :status: valid
     :collapse: True
   
-The More Segments Flag shall be set to 1 for all segments but the last segment. For the last segment it shall be set to 0.
+The More Segments Flag shall be set to 1 for all segments except the last segment.
+For the last segment the More Segments Flag shall be set to 0.
     
 .. feat_req:: 🎯
     :id: feat_req_someiptp_771
@@ -178,7 +191,7 @@ The length of a segment must reflect the alignment of the next segment based on 
     :status: valid
     :collapse: True
   
-Since UDP-based SOME/IP messages are limited to 1400 bytes payload, the maximum length of a segment that is correctly aligned is 1392 bytes.
+Since UDP-based SOME/IP messages are limited to 1400 bytes payload, the maximum length of a segment that is correctly aligned is 87 x 16 bytes = 1392 bytes.
     
 .. feat_req:: 🎯
     :id: feat_req_someiptp_774
@@ -256,7 +269,7 @@ The sender shall segment in a way that all segments with the More Segment Flag s
     :status: valid
     :collapse: True
   
-The sender shall try to maximize the size of segments within limitations imposed by this specification.
+The sender shall try to maximize the size of the segments within limitations imposed by this specification.
     
 .. feat_req:: 🎯
     :id: feat_req_someiptp_780
@@ -278,18 +291,7 @@ The sender shall not send overlapping or duplicated segments.
     :status: valid
     :collapse: True
   
-The sender shall only use as many different Client-IDs for a message that uses SOME/IP-TP as determined by the configuration.
-    
-.. feat_req:: 🎯
-    :id: feat_req_someiptp_823
-    :reqtype: Requirement
-    :security: NO
-    :safety: QM
-    :satisfies: 
-    :status: valid
-    :collapse: True
-  
-If no explicit number of Clients-IDs is specified for a message that uses SOME/IP-TP, it has to assumed that each client ECU is only allowed to implement one client with a single Client-ID.
+The sender shall only use as many different Client IDs for a message that uses SOME/IP-TP as determined by the configuration.
     
 .. heading:: Receiver specific behavior
     :id: feat_req_someiptp_776
@@ -308,7 +310,7 @@ Receiver specific behavior
     :status: valid
     :collapse: True
   
-The receiver shall match segments for reassembly based on the configured values of Message-ID, Protocol-Version, Interface-Version, and Message-Type (w/o TP Flag) as well as the dynamic value of the Request-ID.
+The receiver shall match segments for reassembly based on the configured values of Message ID, Protocol-Version, Interface-Version, and Message Type (w/o TP Flag) as well as the dynamic value of the Request ID.
     
 .. feat_req:: 🎯
     :id: feat_req_someiptp_794
@@ -421,7 +423,6 @@ The receiver shall support reassembly of segments that are received in ascending
     :collapse: True
   
 The receiver should support reassembly of segments that are received in descending order.
-
     
 .. feat_req:: ⓘ 
     :id: feat_req_someiptp_790
@@ -460,7 +461,7 @@ Note: This means that reordering inside a single original message is allowed, if
   
 Reordering of segments belonging to different original messages but using the same buffer (e.g. only the Session ID and payload are different) is currently not allowed, since this could lead to reordering of original messages and breaking "last is best" semantics.
 
-Note: This prohibits that equal events (same Message-ID, IP-Addresses, ports numbers, and transport protocol) arrive in the wrong order.
+Note: This prohibits that equal events (same Message ID, IP-Addresses, ports numbers, and transport protocol) arrive in the wrong order.
     
 .. feat_req:: 🎯
     :id: feat_req_someiptp_803
@@ -489,10 +490,7 @@ Example:
 
  1. Segment 0..2 = 111
  2. Segment 1..3 = 222
-
-
-
- Reassembled Message = 1112
+ 3. Reassembled Message = 1112
     
 .. feat_req:: 🎯
     :id: feat_req_someiptp_810

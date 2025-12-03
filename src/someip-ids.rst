@@ -34,7 +34,7 @@ Reserved and special identifiers for SOME/IP and SOME/IP-SD.
     :status: valid
     :collapse: True
   
-In this chapter an overview of reserved and special identifiers are shown.
+In this chapter an overview of reserved and special identifiers is shown.
     
 .. feat_req:: ⓘ 
     :id: feat_req_someipids_505
