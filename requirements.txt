@@ -5,3 +5,4 @@ sphinxcontrib-plantuml
 bitfield-extended
 drawsvg
 setuptools
+sphinx-lint
