@@ -17,10 +17,8 @@
 
 .. heading:: Introduction
    :id: feat_req_someip_2
-   :hide: True
 
-   : layout : focus
-   : style : clean
+   : hide : True
 
 .. rst-class:: break_before
 

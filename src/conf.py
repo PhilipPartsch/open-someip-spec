@@ -88,13 +88,55 @@ needs_import_keys = {"key": "needs_test.json"}
 
 needs_json_remove_defaults = True
 
-needs_extra_options = ["level","reqtype","security","safety","satisfies"]
+needs_extra_options = [
+    {
+        "name": "reqtype",
+        "description": "type of a requirement",
+        "schema": {
+            "type": "string",
+            "enum": ["Information", "Requirement",]
+        },
+    },
+    {
+        "name": "security",
+        "description": "security relevant",
+        "schema": {
+            "type": "string",
+            "enum": ["TBD", "No", "Yes"]
+        },
+    },
+    {
+        "name": "safety",
+        "description": "safety level",
+        "schema": {
+            "type": "string",
+            "enum": ["TBD", "QM", "ASIL-A", "ASIL-B", "ASIL-C", "ASIL-D"]
+        },
+    },
+    {
+        "name": "h",
+        "description": "heading level",
+        "schema": {
+            "type": "int",
+            "minimum": 0,
+            "maximum": 6,
+        },
+    },
+    #"level",
+]
 
 needs_extra_links = [
     {
         "option": "heading",
         "incoming": "spans_entries",
         "outgoing": "heading",
+        "copy": False,
+        "color": "#00AA00"
+    },
+    {
+        "option": "satisfies",
+        "incoming": "satisfied by",
+        "outgoing": "satisfies",
         "copy": False,
         "color": "#00AA00"
     }
