@@ -117,7 +117,7 @@ needs_extra_options = [
         "name": "h",
         "description": "heading level",
         "schema": {
-            "type": "int",
+            "type": "integer",
             "minimum": 0,
             "maximum": 6,
         },
