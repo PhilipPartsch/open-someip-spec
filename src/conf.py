@@ -102,7 +102,7 @@ needs_extra_options = [
         "description": "security relevant",
         "schema": {
             "type": "string",
-            "enum": ["TBD", "No", "Yes"]
+            "enum": ["TBD", "NO", "YES"]
         },
     },
     {
