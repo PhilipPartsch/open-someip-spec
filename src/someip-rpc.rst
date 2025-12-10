@@ -16,9 +16,10 @@
 
 
 .. heading:: Introduction
-    :id: feat_req_someip_2
-    :layout: focus
-    :style: clean
+   :id: feat_req_someip_2
+
+   : layout : focus
+   : style : clean
 
 .. rst-class:: break_before
 
