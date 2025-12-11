@@ -1,4 +1,3 @@
-{{ h | default(6) }}
 {% set symbols = {
     0: '#',
     1: '*',
@@ -12,7 +11,7 @@
 .. rst-class:: break_before
 
 {{ title }}
-{{ symbols.get(0, '_') * title|length }}
+{{ '#' * title|length }}
 
 .. code::
 
