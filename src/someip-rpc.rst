@@ -17,13 +17,19 @@
 
 .. heading:: Introduction
    :id: feat_req_someip_2
+   :h: 0
+   :post_template: heading_post_template
 
    : hide : True
+
+<<<old>>>
 
 .. rst-class:: break_before
 
 Introduction
 ############
+
+<<<old>>>
 
 .. feat_req:: ⓘ
     :id: feat_req_someip_3

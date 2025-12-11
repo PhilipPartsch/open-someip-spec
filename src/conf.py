@@ -122,7 +122,6 @@ needs_extra_options = [
             "maximum": 6,
         },
     },
-    #"level",
 ]
 
 needs_extra_links = [
@@ -141,6 +140,8 @@ needs_extra_links = [
         "color": "#00AA00"
     }
 ]
+
+
 
 needs_css = 'blank.css'
 
