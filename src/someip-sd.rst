@@ -3190,7 +3190,9 @@ The following steps shall be taken:
 * Check if all endpoint options contain a valid IP address (see :need:`feat_req_someipsd_1233`)
 * Check if the TCP connection is already present (only applicable, if TCP is configured for Eventgroup and SubscribeEventgroup entry was received)
 * Check if enough resources are left (e.g. Socket Connections)
-* If any of these checks fails, the following shall be done:
+
+If any of these checks fails, the following shall be done:
+
 * Respond with a SubscribeEventgroupNack, if the original entry was a SubscribeEventgroup entry :need:`feat_req_someipsd_1137`.
 * Ignore, if the original entry was not a SubscribeEventgroup entry
 
@@ -3584,6 +3586,8 @@ Figure: Publish/Subscribe Registration/Deregistration behavior (figure ignoring 
     :collapse: True
 
 Figure: Publish / Subscribe Registration / Deregistration behavior (figure ignores timings)
+
+.. plantuml:: images/plantuml/feat_req_someipsd_1239.puml
 
 .. feat_req:: 🎯
     :id: feat_req_someipsd_435

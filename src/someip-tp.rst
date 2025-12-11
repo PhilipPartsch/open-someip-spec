@@ -487,10 +487,9 @@ The receiver should correctly reassemble overlapping and duplicated segments by 
 
 Example:
 
-
- 1. Segment 0..2 = 111
- 2. Segment 1..3 = 222
- 3. Reassembled Message = 1112
+1. Segment 0..2 = 111
+2. Segment 1..3 = 222
+3. Reassembled Message = 1112
 
 .. feat_req:: 🎯
     :id: feat_req_someiptp_810
