@@ -75,7 +75,7 @@ needs_types = [
         "color": "#DCB239",
         "style": "title"
     },
-        {
+    {
         "directive": "feat_req",
         "title": "feat_req",
         "prefix": "feat_req_",
@@ -141,7 +141,20 @@ needs_extra_links = [
     }
 ]
 
+needs_global_options = {
+   "hide": {
+      "predicates": [
+         ("type == 'heading'", True),
+      ]
+   },
+   "collapse": {
+      "predicates": [
+         ("type == 'feat_req'", True),
+      ]
+   },
+}
 
+needs_title_optional = True
 
 needs_css = 'blank.css'
 
