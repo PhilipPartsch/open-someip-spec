@@ -161,6 +161,16 @@ needs_global_options = {
          ("type == 'feat_req'", True),
       ]
    },
+   "template": {
+      "predicates": [
+         ("type == 'feat_req'", "feat_req_template"),
+      ]
+   },
+   "post_template": {
+      "predicates": [
+         ("type == 'heading'", "heading_post_template"),
+      ]
+   },
 }
 
 needs_css = 'blank.css'
