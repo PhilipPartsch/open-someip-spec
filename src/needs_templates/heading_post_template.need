@@ -7,11 +7,9 @@
     6: '"'
 } %}
 
-{% if layout != "focus" %}
 {% if h == 0 %}
 .. rst-class:: break_before
 {% endif %}
 
 {{ title }}
 {{ symbols.get(h, '_') * title|length }}
-{% endif %}
