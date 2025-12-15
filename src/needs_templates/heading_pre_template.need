@@ -7,7 +7,7 @@
    6: '"'
 } %}
 
-{% if h != 0 %}
+{% if h > 0 %}
 {% if h == 0 %}
 .. rst-class:: break_before
 {% endif %}
@@ -16,6 +16,10 @@
 {{ symbols.get(h, '_') * title|length }}
 
 .. code:: rst
+
+   {% if h == 0 %}
+   .. rst-class:: break_before
+   {% endif %}
 
    {{ title }}
    {{ symbols.get(h, '_') * title|length }}
