@@ -11,13 +11,6 @@
 
 /* Title bar: Header row with two-column layout */
 
-/* div.need .need-title { */
-.needs_type_heading2 {
-        display: block!important;
-        height: 0px!important;
-        margin: 0px!important;
-    }
-
 /* Right side of header (status, safety, etc.) */
 
 .needs-head-right {
@@ -51,7 +44,7 @@
 
 /* Main content of the requirement */
 
-.need-content2 {
+.need-content {
     padding: 16px;
     background-color: #fff;
     font-size: 0.95rem;

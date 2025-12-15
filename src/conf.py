@@ -156,7 +156,7 @@ needs_extra_links = [
 needs_global_options = {
    "hide": {
       "predicates": [
-         ("type == 'heading'", False),
+         ("type == 'heading'", True),
       ]
    },
    "collapse": {
