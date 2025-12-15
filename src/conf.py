@@ -128,16 +128,7 @@ needs_extra_options = [
         "description": "heading level",
         "schema": {
             "type": "integer",
-            "minimum": 0, # 1
-            "maximum": 0, # 6
-        },
-    },
-    {
-        "name": "h2",
-        "description": "heading level",
-        "schema": {
-            "type": "integer",
-            "minimum": 0,
+            "minimum": 1,
             "maximum": 6,
         },
     },
@@ -195,7 +186,7 @@ needs_global_options = {
          ),
       ]
    },
-   "h2": {
+   "h": {
       "predicates": [
          (
             "type == 'heading'",
@@ -208,13 +199,6 @@ needs_global_options = {
 
 def sections_level(app, need, needs, *args, **kwargs):
     len_sections: int = len(need["sections"])
-    if "feat_req_someip_2" == need["id"]:
-        print("sections")
-        print(need["sections"])
-        print("section")
-        print(need["section_name"])
-        print("len_sections")
-        print(len_sections)
     return len_sections
 
 needs_css = 'blank.css'
