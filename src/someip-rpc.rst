@@ -14,6 +14,9 @@
 .. SOME/IP Protocol Specification
 .. ##############################
 
+Introduction
+############
+
 .. heading:: Introduction
    :id: feat_req_someip_2
    :h: 1

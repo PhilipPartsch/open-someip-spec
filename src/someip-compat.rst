@@ -14,6 +14,8 @@
 .. Migration and Compatibility
 .. ###########################
 
+Migration and Compatibility
+###########################
 
 .. heading:: Migration and Compatibility
    :id: feat_req_someipcompat_712

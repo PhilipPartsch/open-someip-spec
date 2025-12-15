@@ -14,6 +14,8 @@
 .. SOME/IP-SD Specification
 .. ########################
 
+SOME/IP Service Discovery (SOME/IP-SD)
+######################################
 
 .. heading:: SOME/IP Service Discovery (SOME/IP-SD)
    :id: feat_req_someipsd_1

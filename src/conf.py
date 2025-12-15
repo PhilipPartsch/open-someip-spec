@@ -98,7 +98,7 @@ needs_json_remove_defaults = True
 needs_extra_options = [
     {
         "name": "reqtype",
-        "description": "type of a requirement",
+        "description": "type",
         "schema": {
             "type": "string",
             "enum": ["Information", "Requirement",]
@@ -170,6 +170,15 @@ needs_global_options = {
       "predicates": [
          ("type == 'heading'", "heading_pre_template"),
       ]
+   },
+   "heading": {
+      "predicates": [
+         (
+            "type == 'heading'",
+            "[[copy("id", filter='\"heading\" == type and current_need[\"sections\"] == sections and current_need[\"docname\"][-1] == docname and current_need[\"doctype\"] == doctype')]]"
+        ),
+      ],
+      "default": "[[copy("id", filter='\"heading\" == type and current_need[\"sections\"] == sections and current_need[\"docname\"] == docname and current_need[\"doctype\"] == doctype')]]"
    },
 }
 
