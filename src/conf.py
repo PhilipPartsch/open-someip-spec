@@ -191,7 +191,7 @@ needs_global_options = {
       "predicates": [
          (
             "type == 'heading'",
-            "[[copy('section')]]"
+            "[[copy('section_name')]]"
          ),
       ]
    },
@@ -207,12 +207,15 @@ needs_global_options = {
 
 
 def sections_level(app, need, needs, *args, **kwargs):
+    len_sections: int = len(need["sections"])
     if "feat_req_someip_2" == need["id"]:
         print("sections")
         print(need["sections"])
         print("section")
-        print(need["section"])
-    return len(need["sections"])
+        print(need["section_name"])
+        print("len_sections")
+        print(len_sections)
+    return len_sections
 
 needs_css = 'blank.css'
 
