@@ -17,16 +17,14 @@
 Migration and Compatibility
 ###########################
 
-.. heading:: Migration and Compatibility
+.. heading::
    :id: feat_req_someipcompat_712
-   :h: 1
 
 Supporting forward compatibility
 ********************************
 
-.. heading:: Supporting forward compatibility
+.. heading::
    :id: feat_req_someipcompat_1196
-   :h: 2
 
 .. feat_req::
    :id: feat_req_someipcompat_1205
@@ -110,9 +108,8 @@ Implementations shall support receiving unknown SOME/IP messages (using nPDU or 
 Supporting multiple versions of the same service.
 *************************************************
 
-.. heading:: Supporting multiple versions of the same service.
+.. heading::
    :id: feat_req_someipcompat_713
-   :h: 2
 
 .. feat_req::
    :id: feat_req_someipcompat_714

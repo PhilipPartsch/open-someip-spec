@@ -17,9 +17,8 @@
 Transporting large SOME/IP messages over UDP (SOME/IP-TP)
 #########################################################
 
-.. heading:: Transporting large SOME/IP messages over UDP (SOME/IP-TP)
+.. heading::
    :id: feat_req_someiptp_759
-   :h: 1
 
 .. feat_req::
    :id: feat_req_someiptp_760
@@ -195,9 +194,11 @@ Transporting large SOME/IP messages over UDP (SOME/IP-TP)
 
    Note: This does not mean that one shaper per SOME/IP-TP message is required but a shaper can cover multiple SOME/IP messages.
 
-.. heading:: Sender specific behavior
+Sender specific behavior
+************************
+
+.. heading::
    :id: feat_req_someiptp_775
-   :h: 2
 
 .. feat_req::
    :id: feat_req_someiptp_788
@@ -257,9 +258,8 @@ Transporting large SOME/IP messages over UDP (SOME/IP-TP)
 Receiver specific behavior
 **************************
 
-.. heading:: Receiver specific behavior
+.. heading::
    :id: feat_req_someiptp_776
-   :h: 2
 
 .. feat_req::
    :id: feat_req_someiptp_781

@@ -17,9 +17,8 @@
 Reserved and special identifiers for SOME/IP and SOME/IP-SD
 ###########################################################
 
-.. heading:: Reserved and special identifiers for SOME/IP and SOME/IP-SD.
+.. heading::
    :id: feat_req_someipids_504
-   :h: 1
 
 .. feat_req::
    :id: feat_req_someipids_554

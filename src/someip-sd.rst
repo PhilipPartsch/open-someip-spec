@@ -17,17 +17,14 @@
 SOME/IP Service Discovery (SOME/IP-SD)
 ######################################
 
-.. heading:: SOME/IP Service Discovery (SOME/IP-SD)
+.. heading::
    :id: feat_req_someipsd_1
-   :h: 1
-
 
 General
 *******
 
-.. heading:: General
+.. heading::
    :id: feat_req_someipsd_182
-   :h: 2
 
 .. feat_req::
    :id: feat_req_someipsd_183
@@ -50,9 +47,11 @@ General
    the state of the service instance is of primary concern. The location of the service
    (i.e. IP-Address, transport protocol and port number) are of secondary concern.
 
-.. heading:: Terms and Definitions
+Terms and Definitions
+=====================
+
+.. heading::
    :id: feat_req_someipsd_2
-   :h: 2
 
 .. feat_req::
    :id: feat_req_someipsd_497
@@ -104,9 +103,8 @@ General
 SOME/IP-SD ECU-internal Interface
 *********************************
 
-.. heading:: SOME/IP-SD ECU-internal Interface
+.. heading::
    :id: feat_req_someipsd_13
-   :h: 2
 
 .. feat_req::
    :id: feat_req_someipsd_17
@@ -221,16 +219,14 @@ SOME/IP-SD ECU-internal Interface
 SOME/IP-SD Message Format
 *************************
 
-.. heading:: SOME/IP-SD Message Format
+.. heading::
    :id: feat_req_someipsd_24
-   :h: 2
 
 General Requirements
 ====================
 
-.. heading:: General Requirements
+.. heading::
    :id: feat_req_someipsd_96
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someipsd_27
@@ -289,9 +285,8 @@ General Requirements
 SOME/IP-SD Header
 =================
 
-.. heading:: SOME/IP-SD Header
+.. heading::
    :id: feat_req_someipsd_97
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someipsd_38
@@ -506,9 +501,8 @@ SOME/IP-SD Header
 Entry Format
 ============
 
-.. heading:: Entry Format
+.. heading::
    :id: feat_req_someipsd_94
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someipsd_771
@@ -607,9 +601,8 @@ Entry Format
 Options Format
 ==============
 
-.. heading:: Options Format
+.. heading::
    :id: feat_req_someipsd_104
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someipsd_772
@@ -644,11 +637,10 @@ Options Format
    The length field shall cover all bytes of the option except the length field and type field.
 
 Configuration Option
--------------------- 
+--------------------
 
-.. heading:: Configuration Option
+.. heading::
    :id: feat_req_someipsd_139
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someipsd_755
@@ -823,9 +815,8 @@ Configuration Option
 Load Balancing Option (informational)
 -------------------------------------
 
-.. heading:: Load Balancing Option (informational)
+.. heading::
    :id: feat_req_someipsd_145
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someipsd_754
@@ -907,9 +898,8 @@ Load Balancing Option (informational)
 IPv4 Endpoint Option
 --------------------
 
-.. heading:: IPv4 Endpoint Option
+.. heading::
    :id: feat_req_someipsd_126
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someipsd_752
@@ -1019,9 +1009,8 @@ IPv4 Endpoint Option
 IPv6 Endpoint Option
 --------------------
 
-.. heading:: IPv6 Endpoint Option
+.. heading::
    :id: feat_req_someipsd_138
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someipsd_751
@@ -1129,9 +1118,8 @@ IPv6 Endpoint Option
 IPv4 Multicast Option
 ---------------------
 
-.. heading:: IPv4 Multicast Option
+.. heading::
    :id: feat_req_someipsd_722
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someipsd_749
@@ -1225,9 +1213,8 @@ IPv4 Multicast Option
 IPv6 Multicast Option
 ---------------------
 
-.. heading:: IPv6 Multicast Option
+.. heading::
    :id: feat_req_someipsd_736
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someipsd_750
@@ -1322,9 +1309,8 @@ IPv6 Multicast Option
 IPv4 SD Endpoint Option
 -----------------------
 
-.. heading:: IPv4 SD Endpoint Option
+.. heading::
    :id: feat_req_someipsd_1080
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someipsd_1081
@@ -1457,9 +1443,8 @@ IPv4 SD Endpoint Option
 IPv6 SD Endpoint Option
 -----------------------
 
-.. heading:: IPv6 SD Endpoint Option
+.. heading::
    :id: feat_req_someipsd_1097
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someipsd_1098
@@ -1593,9 +1578,8 @@ IPv6 SD Endpoint Option
 MAC-Groupcast Endpoint Option
 -----------------------------
 
-.. heading:: MAC-Groupcast Endpoint Option
+.. heading::
    :id: feat_req_someipsd_1248
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someipsd_1249
@@ -1679,9 +1663,8 @@ MAC-Groupcast Endpoint Option
 Referencing Options from Entries
 ================================
 
-.. heading:: Referencing Options from Entries
+.. heading::
    :id: feat_req_someipsd_335
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someipsd_336
@@ -1766,9 +1749,8 @@ Referencing Options from Entries
 Handling missing, redundant and conflicting Options
 ---------------------------------------------------
 
-.. heading:: Handling missing, redundant and conflicting Options
+.. heading::
    :id: feat_req_someipsd_1140
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someipsd_1142
@@ -1845,9 +1827,8 @@ Handling missing, redundant and conflicting Options
 Example
 =======
 
-.. heading:: Example
+.. heading::
    :id: feat_req_someipsd_212
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someipsd_214
@@ -1873,9 +1854,8 @@ Example
 Service Discovery Messages
 **************************
 
-.. heading:: Service Discovery Messages
+.. heading::
    :id: feat_req_someipsd_219
-   :h: 2
 
 .. feat_req::
    :id: feat_req_someipsd_235
@@ -1901,11 +1881,10 @@ Service Discovery Messages
       and Number of Options 2 shall be set according to the chained options.
 
 Service Entries
-=============== 
+===============
 
-.. heading:: Service Entries
+.. heading::
    :id: feat_req_someipsd_224
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someipsd_236
@@ -1920,9 +1899,8 @@ Service Entries
 FindService Entry
 -----------------
 
-.. heading:: FindService Entry
+.. heading::
    :id: feat_req_someipsd_220
-   :h: 4
 
 .. feat_req::
    :id: feat_req_someipsd_238
@@ -1966,9 +1944,8 @@ FindService Entry
 OfferService Entry
 ------------------
 
-.. heading:: OfferService Entry
+.. heading::
    :id: feat_req_someipsd_221
-   :h: 4
 
 .. feat_req::
    :id: feat_req_someipsd_252
@@ -2061,9 +2038,8 @@ OfferService Entry
 StopOfferService Entry
 ----------------------
 
-.. heading:: StopOfferService Entry
+.. heading::
    :id: feat_req_someipsd_225
-   :h: 4
 
 .. feat_req::
    :id: feat_req_someipsd_261
@@ -2089,9 +2065,8 @@ StopOfferService Entry
 Eventgroup Entries
 ==================
 
-.. heading:: Eventgroup Entries
+.. heading::
    :id: feat_req_someipsd_227
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someipsd_237
@@ -2106,9 +2081,8 @@ Eventgroup Entries
 SubscribeEventgroup Entry
 -------------------------
 
-.. heading:: SubscribeEventgroup Entry
+.. heading::
    :id: feat_req_someipsd_230
-   :h: 4
 
 .. feat_req::
    :id: feat_req_someipsd_321
@@ -2158,9 +2132,8 @@ SubscribeEventgroup Entry
 StopSubscribeEventgroup Entry
 -----------------------------
 
-.. heading:: StopSubscribeEventgroup Entry
+.. heading::
    :id: feat_req_someipsd_233
-   :h: 4
 
 .. feat_req::
    :id: feat_req_someipsd_332
@@ -2196,9 +2169,8 @@ StopSubscribeEventgroup Entry
 Subscribe Eventgroup Acknowledgement (SubscribeEventgroupAck) Entry
 -------------------------------------------------------------------
 
-.. heading:: Subscribe Eventgroup Acknowledgement (SubscribeEventgroupAck) Entry
+.. heading::
    :id: feat_req_someipsd_612
-   :h: 4
 
 .. feat_req::
    :id: feat_req_someipsd_613
@@ -2236,9 +2208,8 @@ Subscribe Eventgroup Acknowledgement (SubscribeEventgroupAck) Entry
 Subscribe Eventgroup Negative Acknowledgement (SubscribeEventgroupNack) Entry
 -----------------------------------------------------------------------------
 
-.. heading:: Subscribe Eventgroup Negative Acknowledgement (SubscribeEventgroupNack) Entry
+.. heading::
    :id: feat_req_someipsd_617
-   :h: 4
 
 .. feat_req::
    :id: feat_req_someipsd_618
@@ -2311,16 +2282,14 @@ Subscribe Eventgroup Negative Acknowledgement (SubscribeEventgroupNack) Entry
 Service Discovery Communication Behavior
 ****************************************
 
-.. heading:: Service Discovery Communication Behavior
+.. heading::
    :id: feat_req_someipsd_25
-   :h: 2
 
 Startup Behavior
 ================
 
-.. heading:: Startup Behavior
+.. heading::
    :id: feat_req_someipsd_59
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someipsd_68
@@ -2560,9 +2529,8 @@ Startup Behavior
 Response Behavior
 =================
 
-.. heading:: Response Behavior
+.. heading::
    :id: feat_req_someipsd_61
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someipsd_83
@@ -2670,9 +2638,8 @@ Response Behavior
 Shutdown Behavior
 =================
 
-.. heading:: Shutdown Behavior
+.. heading::
    :id: feat_req_someipsd_819
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someipsd_820
@@ -2746,11 +2713,10 @@ Shutdown Behavior
    entries and StopSubscribeEventgroup entries for Eventgroups.
 
 State Machines
-============== 
+==============
 
-.. heading:: State Machines
+.. heading::
    :id: feat_req_someipsd_627
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someipsd_628
@@ -2788,9 +2754,8 @@ State Machines
 Error Handling
 ==============
 
-.. heading:: Error Handling
+.. heading::
    :id: feat_req_someipsd_1162
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someipsd_1220
@@ -2904,9 +2869,8 @@ Error Handling
 Announcing non-SOME/IP protocols with SOME/IP-SD
 ************************************************
 
-.. heading:: Announcing non-SOME/IP protocols with SOME/IP-SD
+.. heading::
    :id: feat_req_someipsd_498
-   :h: 2
 
 .. feat_req::
    :id: feat_req_someipsd_499
@@ -2998,9 +2962,8 @@ Announcing non-SOME/IP protocols with SOME/IP-SD
 Publish/Subscribe with SOME/IP and SOME/IP-SD
 *********************************************
 
-.. heading:: Publish/Subscribe with SOME/IP and SOME/IP-SD
+.. heading::
    :id: feat_req_someipsd_137
-   :h: 2
 
 .. feat_req::
    :id: feat_req_someipsd_419
@@ -3520,9 +3483,8 @@ Publish/Subscribe with SOME/IP and SOME/IP-SD
 Endpoint Handling for Services and Events
 *****************************************
 
-.. heading:: Endpoint Handling for Services and Events
+.. heading::
    :id: feat_req_someipsd_776
-   :h: 2
 
 .. feat_req::
    :id: feat_req_someipsd_777
@@ -3547,9 +3509,8 @@ Endpoint Handling for Services and Events
 Service Endpoints
 =================
 
-.. heading:: Service Endpoints
+.. heading::
    :id: feat_req_someipsd_784
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someipsd_780
@@ -3642,9 +3603,8 @@ Service Endpoints
 Eventgroup Endpoints
 ====================
 
-.. heading:: Eventgroup Endpoints
+.. heading::
    :id: feat_req_someipsd_785
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someipsd_786
@@ -3727,9 +3687,8 @@ Eventgroup Endpoints
 Example
 =======
 
-.. heading:: Example
+.. heading::
    :id: feat_req_someipsd_794
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someipsd_796
@@ -3774,9 +3733,8 @@ Example
 Security Considerations
 =======================
 
-.. heading:: Security Considerations
+.. heading::
    :id: feat_req_someipsd_1134
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someipsd_1135
@@ -3814,9 +3772,8 @@ Security Considerations
 Mandatory Feature Set and Basic Behavior
 ****************************************
 
-.. heading:: Mandatory Feature Set and Basic Behavior
+.. heading::
    :id: feat_req_someipsd_806
-   :h: 2
 
 .. feat_req::
    :id: feat_req_someipsd_807
@@ -4078,9 +4035,8 @@ Mandatory Feature Set and Basic Behavior
 SOME/IP-SD Mechanisms and Errors
 ********************************
 
-.. heading:: SOME/IP-SD Mechanisms and Errors
+.. heading::
    :id: feat_req_someipsd_837
-   :h: 2
 
 .. feat_req::
    :id: feat_req_someipsd_838

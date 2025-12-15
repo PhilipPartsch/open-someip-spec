@@ -17,9 +17,8 @@
 Introduction
 ############
 
-.. heading:: Introduction
+.. heading::
    :id: feat_req_someip_2
-   :h: 1
 
 .. feat_req::
    :id: feat_req_someip_3
@@ -63,9 +62,8 @@ Introduction
 Definition of terms
 *******************
 
-.. heading:: Definition of terms
+.. heading::
    :id: feat_req_someip_14
-   :h: 2
 
 .. feat_req::
    :id: feat_req_someip_15
@@ -122,11 +120,10 @@ Definition of terms
    *  Endpoint – the combination of IP address, Layer 4 protocol, and port number.
 
 Definition of Identifiers
-========================= 
+=========================
 
-.. heading:: Definition of Identifiers
+.. heading::
    :id: feat_req_someip_534
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someip_538
@@ -268,9 +265,8 @@ Definition of Identifiers
 Specification of the SOME/IP on-wire format
 ###########################################
 
-.. heading:: Specification of the SOME/IP on-wire format
+.. heading::
    :id: feat_req_someip_29
-   :h: 1
 
 .. feat_req::
    :id: feat_req_someip_30
@@ -285,9 +281,8 @@ Specification of the SOME/IP on-wire format
 Transport Protocol
 ******************
 
-.. heading:: Transport Protocol
+.. heading::
    :id: feat_req_someip_31
-   :h: 2
 
 .. feat_req::
    :id: feat_req_someip_32
@@ -365,9 +360,8 @@ Transport Protocol
 Message Length Limitations
 ==========================
 
-.. heading:: Message Length Limitations
+.. heading::
    :id: feat_req_someip_34
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someip_35
@@ -405,9 +399,8 @@ Message Length Limitations
 Endianness
 **********
 
-.. heading:: Endianness
+.. heading::
    :id: feat_req_someip_41
-   :h: 2
 
 .. feat_req::
    :id: feat_req_someip_42
@@ -433,9 +426,8 @@ Endianness
 Header
 ******
 
-.. heading:: Header
+.. heading::
    :id: feat_req_someip_43
-   :h: 2
 
 .. feat_req::
    :id: feat_req_someip_44
@@ -488,9 +480,8 @@ Header
 IP-Address / port numbers
 =========================
 
-.. heading:: IP-Address / port numbers
+.. heading::
    :id: feat_req_someip_46
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someip_47
@@ -505,9 +496,8 @@ IP-Address / port numbers
 Mapping of IP Addresses and Ports in Response and Error Messages
 ----------------------------------------------------------------
 
-.. heading:: Mapping of IP Addresses and Ports in Response and Error Messages
+.. heading::
    :id: feat_req_someip_48
-   :h: 4
 
 .. feat_req::
    :id: feat_req_someip_49
@@ -528,9 +518,8 @@ Mapping of IP Addresses and Ports in Response and Error Messages
 Message ID [32 bit]
 ===================
 
-.. heading:: Message ID [32 bit]
+.. heading::
    :id: feat_req_someip_55
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someip_56
@@ -556,11 +545,10 @@ Message ID [32 bit]
    in order to ease the organization of Message IDs.
 
 Structure of the Message ID
---------------------------- 
+---------------------------
 
-.. heading:: Structure of the Message ID
+.. heading::
    :id: feat_req_someip_58
-   :h: 4
 
 .. feat_req::
    :id: feat_req_someip_59
@@ -614,9 +602,8 @@ Structure of the Message ID
 Length [32 bit]
 ===============
 
-.. heading:: Length [32 bit]
+.. heading::
    :id: feat_req_someip_76
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someip_77
@@ -640,9 +627,8 @@ Length [32 bit]
 Request ID [32 bit]
 ===================
 
-.. heading:: Request ID [32 bit]
+.. heading::
    :id: feat_req_someip_78
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someip_79
@@ -672,9 +658,8 @@ Request ID [32 bit]
 Structure of the Request ID
 ---------------------------
 
-.. heading:: Structure of the Request ID
+.. heading::
    :id: feat_req_someip_82
-   :h: 4
 
 .. feat_req::
    :id: feat_req_someip_83
@@ -788,9 +773,8 @@ Structure of the Request ID
 Protocol Version [8 bit]
 ========================
 
-.. heading:: Protocol Version [8 bit]
+.. heading::
    :id: feat_req_someip_89
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someip_90
@@ -805,9 +789,8 @@ Protocol Version [8 bit]
 Interface Version [8 bit]
 =========================
 
-.. heading:: Interface Version [8 bit]
+.. heading::
    :id: feat_req_someip_91
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someip_92
@@ -831,9 +814,8 @@ Interface Version [8 bit]
 Message Type [8 bit]
 ====================
 
-.. heading:: Message Type [8 bit]
+.. heading::
    :id: feat_req_someip_94
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someip_95
@@ -948,9 +930,8 @@ Message Type [8 bit]
 Return Code [8 bit]
 ===================
 
-.. heading:: Return Code [8 bit]
+.. heading::
    :id: feat_req_someip_143
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someip_144
@@ -997,9 +978,8 @@ Return Code [8 bit]
 Payload [variable size]
 =======================
 
-.. heading:: Payload [variable size]
+.. heading::
    :id: feat_req_someip_164
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someip_165
@@ -1029,9 +1009,8 @@ Payload [variable size]
 Serialization of Parameters and Data Structures
 ***********************************************
 
-.. heading:: Serialization of Parameters and Data Structures
+.. heading::
    :id: feat_req_someip_167
-   :h: 2
 
 .. feat_req::
    :id: feat_req_someip_168
@@ -1085,9 +1064,8 @@ Serialization of Parameters and Data Structures
 Basic Datatypes
 ===============
 
-.. heading:: Basic Datatypes
+.. heading::
    :id: feat_req_someip_171
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someip_172
@@ -1191,9 +1169,8 @@ Basic Datatypes
 Structured Datatypes (structs)
 ==============================
 
-.. heading:: Structured Datatypes (structs)
+.. heading::
    :id: feat_req_someip_229
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someip_230
@@ -1306,9 +1283,8 @@ Structured Datatypes (structs)
 Strings (fixed length)
 ======================
 
-.. heading:: Strings (fixed length)
+.. heading::
    :id: feat_req_someip_232
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someip_233
@@ -1418,9 +1394,8 @@ Strings (fixed length)
 Strings (dynamic length)
 ========================
 
-.. heading:: Strings (dynamic length)
+.. heading::
    :id: feat_req_someip_236
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someip_237
@@ -1497,9 +1472,8 @@ Strings (dynamic length)
 Arrays (fixed length)
 =====================
 
-.. heading:: Arrays (fixed length)
+.. heading::
    :id: feat_req_someip_240
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someip_241
@@ -1525,9 +1499,8 @@ Arrays (fixed length)
 One-dimensional
 ---------------
 
-.. heading:: One-dimensional
+.. heading::
    :id: feat_req_someip_242
-   :h: 4
 
 .. feat_req::
    :id: feat_req_someip_243
@@ -1554,9 +1527,8 @@ One-dimensional
 Multidimensional
 ----------------
 
-.. heading:: Multidimensional
+.. heading::
    :id: feat_req_someip_245
-   :h: 4
 
 .. feat_req::
    :id: feat_req_someip_246
@@ -1584,9 +1556,8 @@ Multidimensional
 Optional Parameters / Optional Elements
 =======================================
 
-.. heading:: Optional Parameters / Optional Elements
+.. heading::
    :id: feat_req_someip_251
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someip_252
@@ -1601,9 +1572,8 @@ Optional Parameters / Optional Elements
 Dynamic Length Arrays
 =====================
 
-.. heading:: Dynamic Length Arrays
+.. heading::
    :id: feat_req_someip_253
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someip_254
@@ -1736,9 +1706,8 @@ Dynamic Length Arrays
 Enumeration
 ===========
 
-.. heading:: Enumeration
+.. heading::
    :id: feat_req_someip_650
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someip_651
@@ -1763,9 +1732,8 @@ Enumeration
 Bitfield
 ========
 
-.. heading:: Bitfield
+.. heading::
    :id: feat_req_someip_688
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someip_689
@@ -1817,9 +1785,8 @@ Bitfield
 Union / Variant
 ===============
 
-.. heading:: Union / Variant
+.. heading::
    :id: feat_req_someip_262
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someip_263
@@ -1973,9 +1940,8 @@ Union / Variant
 Example:  Union of uint8/uint16 both padded to 32 bits
 ------------------------------------------------------
 
-.. heading:: Example:  Union of uint8/uint16 both padded to 32 bits
+.. heading::
    :id: feat_req_someip_276
-   :h: 4
 
 .. feat_req::
    :id: feat_req_someip_277
@@ -2014,9 +1980,8 @@ Example:  Union of uint8/uint16 both padded to 32 bits
 Example Map / Dictionary
 ========================
 
-.. heading:: Example Map / Dictionary
+.. heading::
    :id: feat_req_someip_299
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someip_300
@@ -2037,9 +2002,8 @@ Example Map / Dictionary
 RPC Protocol specification
 ##########################
 
-.. heading:: RPC Protocol specification
+.. heading::
    :id: feat_req_someip_313
-   :h: 1
 
 .. feat_req::
    :id: feat_req_someip_314
@@ -2053,9 +2017,8 @@ RPC Protocol specification
 Transport Protocol Bindings
 ***************************
 
-.. heading:: Transport Protocol Bindings
+.. heading::
    :id: feat_req_someip_315
-   :h: 2
 
 .. feat_req::
    :id: feat_req_someip_316
@@ -2151,9 +2114,8 @@ Transport Protocol Bindings
 UDP Binding
 ===========
 
-.. heading:: UDP Binding
+.. heading::
    :id: feat_req_someip_317
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someip_318
@@ -2233,9 +2195,8 @@ UDP Binding
 TCP Binding
 ===========
 
-.. heading:: TCP Binding
+.. heading::
    :id: feat_req_someip_323
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someip_324
@@ -2362,9 +2323,8 @@ TCP Binding
 Allowing resync to TCP stream using Magic Cookies
 -------------------------------------------------
 
-.. heading:: Allowing resync to TCP stream using Magic Cookies
+.. heading::
    :id: feat_req_someip_619
-   :h: 4
 
 .. feat_req::
    :id: feat_req_someip_586
@@ -2460,9 +2420,8 @@ Allowing resync to TCP stream using Magic Cookies
 Multiple Service-Instances
 ==========================
 
-.. heading:: Multiple Service-Instances
+.. heading::
    :id: feat_req_someip_444
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someip_636
@@ -2532,9 +2491,8 @@ Multiple Service-Instances
 Request/Response Communication
 ******************************
 
-.. heading:: Request/Response Communication
+.. heading::
    :id: feat_req_someip_327
-   :h: 2
 
 .. feat_req::
    :id: feat_req_someip_328
@@ -2583,9 +2541,8 @@ Request/Response Communication
 Fire&Forget Communication
 *************************
 
-.. heading:: Fire&Forget Communication
+.. heading::
    :id: feat_req_someip_344
-   :h: 2
 
 .. feat_req::
    :id: feat_req_someip_345
@@ -2613,9 +2570,8 @@ Fire&Forget Communication
 Events
 ******
 
-.. heading:: Events
+.. heading::
    :id: feat_req_someip_351
-   :h: 2
 
 .. feat_req::
    :id: feat_req_someip_352
@@ -2705,9 +2661,8 @@ Events
 Strategy for sending notifications
 ==================================
 
-.. heading:: Strategy for sending notifications
+.. heading::
    :id: feat_req_someip_355
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someip_356
@@ -2728,11 +2683,10 @@ Strategy for sending notifications
       an update is transmitted.
 
 Publish/Subscribe Handling
-========================== 
+==========================
 
-.. heading:: Publish/Subscribe Handling
+.. heading::
    :id: feat_req_someip_360
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someip_361
@@ -2746,9 +2700,8 @@ Publish/Subscribe Handling
 Fields
 ******
 
-.. heading:: Fields
+.. heading::
    :id: feat_req_someip_630
-   :h: 2
 
 .. feat_req::
    :id: feat_req_someip_631
@@ -2813,9 +2766,8 @@ Fields
    This implies that only event messages protected with an Alive-Counter which increments in
    fixed intervals are sent cyclically.
 
-.. heading:: Error Handling
+.. heading::
    :id: feat_req_someip_364
-   :h: 2
 
 .. feat_req::
    :id: feat_req_someip_365
@@ -2830,9 +2782,8 @@ Fields
 Transporting Application Error Codes and Exceptions
 ===================================================
 
-.. heading:: Transporting Application Error Codes and Exceptions
+.. heading::
    :id: feat_req_someip_366
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someip_367
@@ -2891,9 +2842,8 @@ Transporting Application Error Codes and Exceptions
 Return Code
 ===========
 
-.. heading:: Return Code
+.. heading::
    :id: feat_req_someip_369
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someip_727
@@ -3037,9 +2987,8 @@ Return Code
 Error Message Format
 ====================
 
-.. heading:: Error Message Format
+.. heading::
    :id: feat_req_someip_421
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someip_422
@@ -3078,9 +3027,8 @@ Error Message Format
 Error Processing Overview
 =========================
 
-.. heading:: Error Processing Overview
+.. heading::
    :id: feat_req_someip_717
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someip_719
@@ -3143,9 +3091,8 @@ Error Processing Overview
 Communication Errors and Handling of Communication Errors
 =========================================================
 
-.. heading:: Communication Errors and Handling of Communication Errors
+.. heading::
    :id: feat_req_someip_429
-   :h: 3
 
 .. feat_req::
    :id: feat_req_someip_430
@@ -3231,9 +3178,8 @@ Communication Errors and Handling of Communication Errors
 Application based Error Handling
 --------------------------------
 
-.. heading:: Application based Error Handling
+.. heading::
    :id: feat_req_someip_440
-   :h: 4
 
 .. feat_req::
    :id: feat_req_someip_441
@@ -3275,9 +3221,8 @@ Application based Error Handling
 Guidelines (informational)
 ##########################
 
-.. heading:: Guidelines (informational)
+.. heading::
    :id: feat_req_someip_449
-   :h: 1
 
 .. feat_req::
    :id: feat_req_someip_105
@@ -3292,9 +3237,8 @@ Guidelines (informational)
 Compatibility rules for interface design (informational)
 ########################################################
 
-.. heading:: Compatibility rules for interface design (informational)
+.. heading::
    :id: feat_req_someip_472
-   :h: 1
 
 .. feat_req::
    :id: feat_req_someip_109

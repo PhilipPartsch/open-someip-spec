@@ -178,7 +178,32 @@ needs_global_options = {
       ],
       "default": "[[copy('id', filter='\"heading\" == type and current_need[\"sections\"] == sections and current_need[\"docname\"] == docname and current_need[\"doctype\"] == doctype')]]"
    },
+   "title": {
+      "predicates": [
+         (
+            "type == 'heading'",
+            "[[copy('section')]]"
+         ),
+      ]
+   },
+   "h": {
+      "predicates": [
+         (
+            "type == 'heading'",
+            "[[sections_level()]]"
+         ),
+      ]
+   },
 }
+
+from sphinx_needs.api import add_dynamic_function
+
+def sections_level(app, need, needs, *args, **kwargs):
+    # Do magic here
+    return len(need["sections"])
+
+def setup(app):
+    add_dynamic_function(app, sections_level)
 
 needs_css = 'blank.css'
 
