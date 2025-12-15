@@ -83,7 +83,9 @@ Supporting forward compatibility
    :safety: QM
    :status: valid
 
-Implementations shall support setting default values to parameters in order to allow receiving SOME/IP messages that do not carry the new parameters yet or shall support missing parameters by another mean.
+   Implementations shall support setting default values to parameters in order
+   to allow receiving SOME/IP messages that do not carry the new parameters yet
+   or shall support missing parameters by another mean.
 
 .. feat_req::
    :id: feat_req_someipcompat_1201
@@ -92,7 +94,8 @@ Implementations shall support setting default values to parameters in order to a
    :safety: QM
    :status: valid
 
-Implementations shall support receiving unknown SOME/IP messages (using nPDU or single) and dropping them (e.g. new events in an old eventgroup).
+   Implementations shall support receiving unknown SOME/IP messages
+   (using nPDU or single) and dropping them (e.g. new events in an old eventgroup).
 
 .. feat_req::
    :id: feat_req_someipcompat_1202
