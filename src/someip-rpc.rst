@@ -58,7 +58,7 @@ Introduction
    *  Provides the features required by automotive use cases.
    *  Is scalable from tiny to large platforms.
    *  Can be implemented on different operating system (e.g. AUTOSAR, GENIVI, and OSEK) and even
-     embedded devices without operating system.
+      embedded devices without operating system.
 
 .. heading:: Definition of terms
    :id: feat_req_someip_14

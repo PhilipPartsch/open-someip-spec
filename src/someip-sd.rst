@@ -2648,7 +2648,7 @@ SOME/IP Service Discovery (SOME/IP-SD)
 
 .. heading:: State Machines
    :id: feat_req_someipsd_627
-   :hand: 3
+   :h: 3
 
 .. feat_req::
    :id: feat_req_someipsd_628
