@@ -137,7 +137,7 @@ needs_extra_options = [
         "description": "heading level",
         "schema": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "maximum": 6,
         },
     },
