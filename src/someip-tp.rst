@@ -255,7 +255,7 @@ Transporting large SOME/IP messages over UDP (SOME/IP-TP)
    determined by the configuration.
 
 .. heading:: Receiver specific behavior
-    :id: feat_req_someiptp_776
+   :id: feat_req_someiptp_776
    :h: 2
 
 .. feat_req::
