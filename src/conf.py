@@ -182,7 +182,7 @@ needs_global_options = {
       "predicates": [
          (
             "type == 'heading'",
-            "feat_req_someip_472, [[copy('id', filter='\"heading\" == type and current_need[\"id\"] != id and current_need[\"sections\"][-1] == sections and current_need[\"docname\"] == docname and current_need[\"doctype\"] == doctype')]]"
+            "[[copy('id', filter='\"heading\" == type and current_need[\"id\"] != id and current_need[\"sections\"][-1] == sections and current_need[\"docname\"] == docname and current_need[\"doctype\"] == doctype')]]"
          ),
       ],
       "default": "[[copy('id', filter='\"heading\" == type and current_need[\"sections\"] == sections and current_need[\"docname\"] == docname and current_need[\"doctype\"] == doctype')]]"
@@ -205,14 +205,14 @@ needs_global_options = {
    },
 }
 
-from sphinx_needs.api import add_dynamic_function
 
 def sections_level(app, need, needs, *args, **kwargs):
-    # Do magic here
+    if "feat_req_someip_2" == need["id"]:
+        print("sections")
+        print(need["sections"])
+        print("section")
+        print(need["section"])
     return len(need["sections"])
-
-def setup(app):
-    add_dynamic_function(app, sections_level)
 
 needs_css = 'blank.css'
 
@@ -243,7 +243,10 @@ plantuml_latex_output_format = "svg"
 jar_path=Path(Path(__file__).parents[1].as_posix(),'tools','plantuml.jar')
 plantuml = f'java -jar {jar_path}'
 
+from sphinx_needs.api import add_dynamic_function
+
 def setup(app: Sphinx, *args, **kwargs):
     app.add_directive('bitfield_directive', BitfieldDirective)
     app.add_directive('drawsvg_directive', DrawSvgDirective)
     app.add_css_file('./css/custom.css')
+    add_dynamic_function(app, sections_level)
